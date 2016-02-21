@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :likes
+
+  def liked?(post)
+    likes.pluck(:post_id).include?(post.id)
+  end
 end

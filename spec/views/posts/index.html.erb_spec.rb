@@ -18,6 +18,8 @@ RSpec.describe "posts/index", type: :view do
 
     assign(:post, Post.new)
 
+    view.stub(:current_user) { user }
+
     render
   end
 

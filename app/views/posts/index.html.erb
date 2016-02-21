@@ -16,5 +16,12 @@
   <div class="post">
     <div class="meta"><%= post.user.email %></div>
     <p><%= post.message %></p>
+    <p>
+      <% if current_user.liked?(post) %>
+        <%= link_to "Unlike", post_like_path([post, post.like_from(current_user)]), method: :delete %>
+      <% else %>
+        <%= link_to "Like", post_likes_path(post), method: :post %>
+      <% end %>
+    </p>
   </div>
 <% end %>

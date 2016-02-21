@@ -1,5 +1,17 @@
 <h1>Posts</h1>
 
+<div class="new_post">
+  <%= form_for(@post) do |f| %>
+    <div class="input required">
+      <%= f.text_area :message %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
+
 <% @posts.each do |post| %>
   <div class="post">
     <div class="meta"><%= post.user.email %></div>

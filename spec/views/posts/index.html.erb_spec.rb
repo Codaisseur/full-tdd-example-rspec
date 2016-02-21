@@ -16,11 +16,20 @@ RSpec.describe "posts/index", type: :view do
       )
     ])
 
+    assign(:post, Post.new)
+
     render
   end
 
   it "renders the title of the page" do
     assert_select "h1", text: "Posts", count: 1
+  end
+
+  it "renders new post form" do
+    assert_select "form[action=?][method=?]", posts_path, "post" do
+      assert_select "textarea#post_message[name=?]", "post[message]"
+      assert_select "input#[type=?][value=?]", "submit", "Create Post"
+    end
   end
 
   it "renders a list of posts" do

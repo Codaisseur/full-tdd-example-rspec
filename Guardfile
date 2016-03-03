@@ -1,5 +1,5 @@
 # A sample Guardfile
-notification :terminal_notifier, app_name: "Social ::", activate: 'com.googlecode.iTerm2'
+notification :terminal_notifier, app_name: "Social ::", activate: 'com.googlecode.iTerm2' if `uname` =~ /Darwin/
 # More info at https://github.com/guard/guard#readme
 
 ## Uncomment and set this to only include directories you want to watch
